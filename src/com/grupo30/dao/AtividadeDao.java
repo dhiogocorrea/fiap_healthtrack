@@ -27,12 +27,13 @@ public class AtividadeDao implements Dao<Atividade> {
 		List<Atividade> allAtividades = new ArrayList<Atividade>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_atividade,duracao_atividade,dt_atividade"
+			PreparedStatement stmt = connection.prepareStatement("SELECT cod_atividade,nome,duracao_atividade,dt_atividade"
 					+ " FROM atividade");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
 				Atividade ativ = new Atividade(res.getInt("cod_atividade"),
+											   res.getString("nome"),
 											   res.getInt("duracao_atividade"),
 											   res.getDate("dt_atividade"));
 				allAtividades.add(ativ);
@@ -52,10 +53,11 @@ public class AtividadeDao implements Dao<Atividade> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO atividade(cod_atividade,duracao_atividade,dt_atividade)"
-					+ " VALUES (SQ_ATIVIDADE.NEXTVAL, ?, ?)");
-			stmt.setDouble(1, t.getDuracaoAtividade());
-			stmt.setDate(2, new java.sql.Date(t.getDtAtividade().getTime()));
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO atividade(cod_atividade,nome,duracao_atividade,dt_atividade)"
+					+ " VALUES (SQ_ATIVIDADE.NEXTVAL, ?, ?, ?)");
+			stmt.setString(1, t.getNome());
+			stmt.setDouble(2, t.getDuracaoAtividade());
+			stmt.setDate(3, new java.sql.Date(t.getDtAtividade().getTime()));
 
 			int res = stmt.executeUpdate();
 

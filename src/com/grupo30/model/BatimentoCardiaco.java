@@ -34,6 +34,13 @@ public class BatimentoCardiaco {
         this.batimentoMedio = batimentoMedio;
         this.dtMedicao = dtMedicao;
     }
+    
+    public BatimentoCardiaco(int batimentoMinimo, int batimentoMaximo, int batimentoMedio, Date dtMedicao) {
+    	this.batimentoMinimo = batimentoMinimo;
+        this.batimentoMaximo = batimentoMaximo;
+        this.batimentoMedio = batimentoMedio;
+        this.dtMedicao = dtMedicao;
+    }
 
     public int getBatimentoMinimo() {
         return batimentoMinimo;
@@ -66,4 +73,11 @@ public class BatimentoCardiaco {
     public void setDtMedicao(Date dtMedicao) {
         this.dtMedicao = dtMedicao;
     }
+
+	@Override
+	public String toString() {
+		return "BatimentoCardiaco [codBatimentoCardiaco=" + codBatimentoCardiaco + ", batimentoMinimo="
+				+ batimentoMinimo + ", batimentoMaximo=" + batimentoMaximo + ", batimentoMedio=" + batimentoMedio
+				+ ", dtMedicao=" + dtMedicao + "]";
+	}
 }

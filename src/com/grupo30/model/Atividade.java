@@ -11,7 +11,11 @@ public class Atividade {
 	 */
     private int codAtividade;
     /**
-     * A duração da atividade
+	 * O nome da atividade
+	 */
+    private String nome;
+    /**
+     * A duração da atividade em segundos
      */
     private int duracaoAtividade;
     /**
@@ -19,8 +23,15 @@ public class Atividade {
      */
     private Date dtAtividade;
 
-    public Atividade(int codAtividade, int duracaoAtividade, Date dtAtividade) {
+    public Atividade(int codAtividade, String nome, int duracaoAtividade, Date dtAtividade) {
         this.codAtividade = codAtividade;
+        this.nome = nome;
+        this.duracaoAtividade = duracaoAtividade;
+        this.dtAtividade = dtAtividade;
+    }
+    
+    public Atividade(String nome, int duracaoAtividade, Date dtAtividade) {
+    	this.nome = nome;
         this.duracaoAtividade = duracaoAtividade;
         this.dtAtividade = dtAtividade;
     }
@@ -31,6 +42,14 @@ public class Atividade {
 
     public void setCodAtividade(int codAtividade) {
         this.codAtividade = codAtividade;
+    }
+    
+    public String getNome() {
+    	return nome;
+    }
+    
+    public void setNome(String nome) {
+    	this.nome = nome;
     }
 
     public int getDuracaoAtividade() {
@@ -48,4 +67,10 @@ public class Atividade {
     public void setDtAtividade(Date dtAtividade) {
         this.dtAtividade = dtAtividade;
     }
+
+	@Override
+	public String toString() {
+		return "Atividade [codAtividade=" + codAtividade + ", nome=" + nome + ", duracaoAtividade=" + duracaoAtividade
+				+ ", dtAtividade=" + dtAtividade + "]";
+	}
 }

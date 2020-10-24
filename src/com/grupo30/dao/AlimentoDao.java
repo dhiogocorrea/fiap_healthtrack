@@ -27,7 +27,7 @@ public class AlimentoDao implements Dao<Alimento> {
 		List<Alimento> allAlimentos = new ArrayList<Alimento>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_alimento,nome,qt_consumida,qt_calorias"
+			PreparedStatement stmt = connection.prepareStatement("SELECT cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida"
 					+ " FROM alimento");
 			ResultSet res = stmt.executeQuery();
 
@@ -35,7 +35,8 @@ public class AlimentoDao implements Dao<Alimento> {
 				Alimento alim = new Alimento(res.getInt("cod_alimento"),
 											 res.getString("nome"),
 											 res.getDouble("qt_consumida"),
-											 res.getInt("qt_calorias"));
+											 res.getInt("qt_calorias"),
+											 res.getDate("dt_consumida"));
 				allAlimentos.add(alim);
 			}
 			stmt.close();
@@ -53,11 +54,12 @@ public class AlimentoDao implements Dao<Alimento> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO alimento(cod_alimento,nome,qt_consumida,qt_calorias)"
-					+ " VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO alimento(cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida)"
+					+ " VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?,?)");
 			stmt.setString(1, t.getNome());
 			stmt.setDouble(2, t.getQtConsumida());
 			stmt.setInt(3, t.getQtCalorias());
+			stmt.setDate(4, new java.sql.Date(t.getDtConsumida().getTime()));
 
 			int res = stmt.executeUpdate();
 

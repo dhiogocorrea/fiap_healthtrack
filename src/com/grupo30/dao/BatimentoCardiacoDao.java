@@ -51,7 +51,28 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 
 	@Override
 	public int insert(BatimentoCardiaco t) {
+		connection = ConnectionFactory.getConnection();
+		if (connection == null) return -1;
 
+		try {
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO BatimentoCardiaco(cod_batimento_cardiaco,batimento_minimo,"
+					+ "batimento_maximo,batimento_medio,dt_medicao)"
+					+ " VALUES (SQ_BATIMENTO_CARDIACO.NEXTVAL, ?, ?, ?, ?)");
+			stmt.setInt(1, t.getBatimentoMinimo());
+			stmt.setInt(2, t.getBatimentoMaximo());
+			stmt.setInt(3, t.getBatimentoMedio());
+			stmt.setDate(4, new java.sql.Date(t.getDtMedicao().getTime()));
+
+			int res = stmt.executeUpdate();
+
+			stmt.close();
+			connection.close();
+			
+			return res;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return -1;
 	}
 
