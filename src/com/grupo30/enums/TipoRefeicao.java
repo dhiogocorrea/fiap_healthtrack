@@ -1,4 +1,4 @@
-package com.grupo30.model;
+package com.grupo30.enums;
 /**
 * Enumerador que contém possíveis tipos de refeições
 */

@@ -22,6 +22,7 @@ public class PesoDao implements Dao<Peso> {
 	@Override
 	public List<Peso> getAll() {
 		connection = ConnectionFactory.getConnection();
+		if (connection == null) return null;
 		
 		List<Peso> allPesos = new ArrayList<Peso>();
 
@@ -45,6 +46,8 @@ public class PesoDao implements Dao<Peso> {
 	@Override
 	public int insert(Peso t) {
 		connection = ConnectionFactory.getConnection();
+		if (connection == null) return -1;
+
 		try {
 			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(valor, dt_pesagem) VALUES (?, ?)");
 			stmt.setDouble(1, t.getValor());
