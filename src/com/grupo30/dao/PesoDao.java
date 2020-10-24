@@ -49,7 +49,7 @@ public class PesoDao implements Dao<Peso> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(valor, dt_pesagem) VALUES (?, ?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(cod_peso, valor, dt_pesagem) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
 			stmt.setDouble(1, t.getValor());
 			stmt.setDate(2, new java.sql.Date(t.getDtPesagem().getTime()));
 

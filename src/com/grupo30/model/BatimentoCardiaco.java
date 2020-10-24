@@ -7,6 +7,10 @@ import java.util.Date;
 public class BatimentoCardiaco {
 
 	/**
+	 * Código do batimento cardíaco
+	 */
+	private int codBatimentoCardiaco;
+	/**
 	 * O minimo de batimento na atividade
 	 */
     private int batimentoMinimo;
@@ -23,8 +27,9 @@ public class BatimentoCardiaco {
      */
     private Date dtMedicao;
 
-    public BatimentoCardiaco(int batimentoMinimo, int batimentoMaximo, int batimentoMedio, Date dtMedicao) {
-        this.batimentoMinimo = batimentoMinimo;
+    public BatimentoCardiaco(int codBatimentoCardiaco, int batimentoMinimo, int batimentoMaximo, int batimentoMedio, Date dtMedicao) {
+        this.codBatimentoCardiaco = codBatimentoCardiaco;
+    	this.batimentoMinimo = batimentoMinimo;
         this.batimentoMaximo = batimentoMaximo;
         this.batimentoMedio = batimentoMedio;
         this.dtMedicao = dtMedicao;
