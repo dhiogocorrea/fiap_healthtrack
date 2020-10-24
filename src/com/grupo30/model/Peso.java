@@ -24,6 +24,11 @@ public class Peso implements Crud {
         this.valor = valor;
         this.dtPesagem = dtPesagem;
     }
+    
+    public Peso(Double valor, Date dtPesagem) {
+        this.valor = valor;
+        this.dtPesagem = dtPesagem;
+    }
 
     public int getCodPeso() {
         return codPeso;
