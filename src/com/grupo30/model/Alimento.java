@@ -2,7 +2,7 @@ package com.grupo30.model;
 /**
 * Modelo de Alimento que contém código, nome, quantidade consumida e quantidade de calorias
 */
-public class Alimento implements Crud {
+public class Alimento {
 
 	/**
 	 * O código do alimento
@@ -58,25 +58,5 @@ public class Alimento implements Crud {
 
     public void setQtCalorias(int qtCalorias) {
         this.qtCalorias = qtCalorias;
-    }
-
-    @Override
-    public Object consultar(int cod) {
-        return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 }

@@ -3,7 +3,7 @@ package com.grupo30.model;
 * Modelo de Tipo de Atividade que contém código, tipo e calorias gastas
 * Armazena os tipos de atividade que o usuário utiliza
 */
-public class TipoAtividade implements Crud{
+public class TipoAtividade {
 
 	/**
 	 * Código de atividade
@@ -46,26 +46,6 @@ public class TipoAtividade implements Crud{
 
     public void setCaloriasGastasHora(int caloriasGastasHora) {
         this.caloriasGastasHora = caloriasGastasHora;
-    }
-
-    @Override
-    public Object consultar(int cod) {
-        return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 * Modelo de Refeicao que contém código, tipo e data da refeição
 * Armazena as refeições feitas pelo usuário
 */
-public class Refeicao implements Crud {
+public class Refeicao {
 
     private int codRefeicao;
     private TipoRefeicao tipoRefeicao;
@@ -38,25 +38,5 @@ public class Refeicao implements Crud {
 
     public void setDtRefeicao(Date dtRefeicao) {
         this.dtRefeicao = dtRefeicao;
-    }
-
-    @Override
-    public Object consultar(int cod) {
-        return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 }

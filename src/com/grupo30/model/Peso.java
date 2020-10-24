@@ -4,7 +4,7 @@ import java.util.Date;
 * Modelo de Peso que contém código, valor e data de inserção
 * Armazena os pesos inseridos pelo usuário
 */
-public class Peso implements Crud {
+public class Peso {
 
 	/**
 	 * O código do peso
@@ -52,31 +52,5 @@ public class Peso implements Crud {
 
     public void setDtPesagem(Date dtPesagem) {
         this.dtPesagem = dtPesagem;
-    }
-
-    public void consultar() {
-    	System.out.println("Cod: " + getCodPeso());
-    	System.out.println("Peso: " + getValor());
-    	System.out.println("Data: " + getDtPesagem());
-    }
-    
-    @Override
-    public Object consultar(int cod) {
-         return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 }

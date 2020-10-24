@@ -4,7 +4,7 @@ import java.util.Date;
 * Modelo de Atividade que contém código, duração e data da atividade
 * Armazena todas as atividades físicas realizadas pelo usuário
 */
-public class Atividade implements Crud{
+public class Atividade {
 
 	/**
 	 * O código da atividade
@@ -47,25 +47,5 @@ public class Atividade implements Crud{
 
     public void setDtAtividade(Date dtAtividade) {
         this.dtAtividade = dtAtividade;
-    }
-
-    @Override
-    public Object consultar(int cod) {
-        return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 }

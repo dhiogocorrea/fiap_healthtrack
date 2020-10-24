@@ -4,7 +4,7 @@ import java.util.Date;
 * Modelo de Batimento Cardíaco que contém batimento minimo, maximo, medio e data de medicação
 * Armazena os batimentos cardiacos de um usuario durante atividades fisicas
 */
-public class BatimentoCardiaco implements Crud{
+public class BatimentoCardiaco {
 
 	/**
 	 * O minimo de batimento na atividade
@@ -60,25 +60,5 @@ public class BatimentoCardiaco implements Crud{
 
     public void setDtMedicao(Date dtMedicao) {
         this.dtMedicao = dtMedicao;
-    }
-
-    @Override
-    public Object consultar(int cod) {
-        return null;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-
-    }
-
-    @Override
-    public void alterar(Object obj) {
-
-    }
-
-    @Override
-    public void excluir(int cod) {
-
     }
 }
