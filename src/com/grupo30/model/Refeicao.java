@@ -1,7 +1,9 @@
 package com.grupo30.model;
-import java.util.Date;
 
 import com.grupo30.enums.TipoRefeicao;
+
+import java.util.Date;
+
 /**
 * Modelo de Refeicao que contém código, tipo e data da refeição
 * Armazena as refeições feitas pelo usuário

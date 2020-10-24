@@ -14,6 +14,10 @@ public abstract class Pessoa {
 	 */
 	private String nome;
 	/**
+	 * Sobrenome da pessoa
+	 */
+	private String sobrenome;
+	/**
 	 * CPF da pessoa
 	 */
 	private int cpf;
@@ -45,11 +49,19 @@ public abstract class Pessoa {
 	 * Número de telefone da pessoa
 	 */
 	private int numeroTelefone;
-	
-	public Pessoa(int codPessoa, String nome, int cpf) {
+
+	public Pessoa(int codPessoa, String nome, String sobrenome, int cpf, String sexo, String email, String senha, Date dtNascimento, Date dtRegistro, Date dtAssinatura, int numeroTelefone) {
 		this.codPessoa = codPessoa;
 		this.nome = nome;
+		this.sobrenome = sobrenome;
 		this.cpf = cpf;
+		this.sexo = sexo;
+		this.email = email;
+		this.senha = senha;
+		this.dtNascimento = dtNascimento;
+		this.dtRegistro = dtRegistro;
+		this.dtAssinatura = dtAssinatura;
+		this.numeroTelefone = numeroTelefone;
 	}
 
 	public int getCodPessoa() {
@@ -68,6 +80,14 @@ public abstract class Pessoa {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
 	public String getSexo() {

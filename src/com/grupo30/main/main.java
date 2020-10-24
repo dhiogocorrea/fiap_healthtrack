@@ -1,20 +1,16 @@
 package com.grupo30.main;
- 
-import java.util.Date;
 
 import com.grupo30.model.Peso;
 import com.grupo30.model.Usuario;
-import com.sun.corba.se.spi.orb.ParserData;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import java.util.Date;
 
 public class main   {
 
     public static void main(String[] args) {
          
        //Instanciando a classe usu�rio 
-    	Usuario usuario = new Usuario(1, "Guilherme Souza Paulo", 666666666);
+    	Usuario usuario = new Usuario(1, "Guilherme Souza Paulo", res.getString("sobrenome"), 666666666, res.getString("sexo"), res.getString("email"), res.getString("senha"), res.getDate("dt_nascimento"), res.getDate("dt_registro"), res.getDate("dt_assinatura"), res.getInt("telefone"));
         usuario.setEmail("guilherBH@gmail.com");
         usuario.setNumeroTelefone(1166666666);
         usuario.setSenha("mypass");

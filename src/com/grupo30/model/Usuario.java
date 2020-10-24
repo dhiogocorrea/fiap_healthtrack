@@ -1,5 +1,7 @@
 package com.grupo30.model;
-import java.util.Date;
+import com.grupo30.enums.Plano;
+
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -27,13 +29,10 @@ public class Usuario extends Pessoa {
 	 * Plano do usuário
 	 */
     private Plano plano;
-     
-	public Usuario(int _codPessoa, String _nomePessoa, int _cpfPessoa)
-	{
-		super(_codPessoa, _nomePessoa, _cpfPessoa);	
+
+	public Usuario(int codPessoa, String nome, String sobrenome, int cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone) {
+		super(codPessoa, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone);
 	}
-	
- 
 
 	public Refeicao getRefeicao() {
 		return refeicao;
