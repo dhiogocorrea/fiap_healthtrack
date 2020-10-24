@@ -23,21 +23,13 @@ public class main   {
         usuario.setDtRegistro(new Date("20/08/2020"));
 
         Peso peso = new Peso(1,175.5,new Date("25/05/2020"));
-        usuario.setPeso(peso);
-        peso.consultar(1);
-        
-        
-        
+        usuario.setPeso(peso); 
        
- System.out.println("UserID: " + usuario.getCodPessoa() +  "\nUsu�rio: " + usuario.getNome()+   "\nCPF:"  + usuario.getCpf());
- System.out.println("\nDados: \nE-mail: "  + usuario.getEmail() +  "\nSexo: " + usuario.getSexo()+   "\nData Nascimento: "  + usuario.getDtNascimento()+"\n");
- 
- peso.consultar();
-
+        System.out.println("UserID: " + usuario.getCodPessoa() +  "\nUsu�rio: " + usuario.getNome()+   "\nCPF:"  + usuario.getCpf());
+ 		System.out.println("\nDados: \nE-mail: "  + usuario.getEmail() +  "\nSexo: " + usuario.getSexo()+   "\nData Nascimento: "  + usuario.getDtNascimento()+"\n");
+    }
 
 }
-
- }
 
     
     
