@@ -1,11 +1,17 @@
 package com.grupo30.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import com.grupo30.model.Peso;
 
 public class PesoDao implements Dao<Peso> {
+
+	private Connection connection;
 
 	@Override
 	public Peso get(long id) {
@@ -15,38 +21,46 @@ public class PesoDao implements Dao<Peso> {
 
 	@Override
 	public List<Peso> getAll() {
-		Calendar c = Calendar.getInstance();
+		connection = ConnectionFactory.getConnection();
 		
-		List<Peso> mockPeso = new ArrayList<Peso>();
+		List<Peso> allPesos = new ArrayList<Peso>();
 
-		c.set(2020, 9, 1, 0, 0);  
-		mockPeso.add(new Peso(1, 70.0, c.getTime()));
-		c.set(2020, 9, 5, 0, 0);  
-		mockPeso.add(new Peso(2, 72.0, c.getTime()));
-		c.set(2020, 9, 10, 0, 0);  
-		mockPeso.add(new Peso(3, 71.6, c.getTime()));
-		c.set(2020, 9, 15, 0, 0);  
-		mockPeso.add(new Peso(4, 70.2, c.getTime()));
-		c.set(2020, 9, 17, 0, 0);  
-		mockPeso.add(new Peso(5, 69.8, c.getTime()));
-		c.set(2020, 9, 20, 0, 0);  
-		mockPeso.add(new Peso(6, 69.8, c.getTime()));
-		c.set(2020, 9, 22, 0, 0);  
-		mockPeso.add(new Peso(7, 69.9, c.getTime()));
-		c.set(2020, 9, 24, 0, 0);  
-		mockPeso.add(new Peso(8, 68.7, c.getTime()));
-		c.set(2020, 9, 29, 0, 0);  
-		mockPeso.add(new Peso(9, 68.5, c.getTime()));
-		c.set(2020, 10, 1, 0, 0);  
-		mockPeso.add(new Peso(10, 67.3, c.getTime()));
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT cod_peso,valor,dt_pesagem FROM peso");
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				Peso p = new Peso(res.getInt("cod_peso"), res.getDouble("valor"), res.getDate("dt_pesagem"));
+				allPesos.add(p);
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		return mockPeso;
+		return allPesos;
 	}
 
 	@Override
-	public void save(Peso t) {
-		// TODO Auto-generated method stub
+	public int insert(Peso t) {
+		connection = ConnectionFactory.getConnection();
+		try {
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(valor, dt_pesagem) VALUES (?, ?)");
+			stmt.setDouble(1, t.getValor());
+			stmt.setDate(2, new java.sql.Date(t.getDtPesagem().getTime()));
+
+			int res = stmt.executeUpdate();
+
+			stmt.close();
+			connection.close();
+			
+			return res;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
+		return -1;
 	}
 
 	@Override
