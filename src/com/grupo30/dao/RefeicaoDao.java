@@ -50,7 +50,7 @@ public class RefeicaoDao implements Dao<Refeicao>{
         if (connection == null) return -1;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(cod_refeicao, tp_refeicao, dt_refeicao) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(cod_refeicao, tp_refeicao, dt_refeicao) VALUES (SQ_REFEICAO.NEXTVAL, ?, ?)");
             stmt.setString(1, refeicao.getTipoRefeicao().toString());
             stmt.setDate(2, new java.sql.Date(refeicao.getDtRefeicao().getTime()));
 

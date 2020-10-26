@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import com.grupo30.dao.*;
+import com.grupo30.enums.TipoRefeicao;
 import com.grupo30.model.*;
 
 public class Teste {
@@ -20,6 +21,8 @@ public class Teste {
 		generateBatimentoCardiaco(dtf);
 		System.out.println("=========================");
 		generatePesos(dtf);
+		System.out.println("=========================");
+		generateRefeicao(dtf);
 		System.out.println("=========================");
 	}
 	
@@ -71,7 +74,6 @@ public class Teste {
 	
 	private static void generatePesos(DateFormat dtf) throws ParseException {
 		PesoDao pesoDao = new PesoDao();
-		
 		pesoDao.insert(new Peso(82.0, dtf.parse("10/09/2020")));
 		pesoDao.insert(new Peso(80.0, dtf.parse("26/09/2020")));
 		pesoDao.insert(new Peso(78.0, dtf.parse("05/10/2020")));
@@ -83,5 +85,21 @@ public class Teste {
 		for(Peso peso : pesos) {
 			System.out.println(peso.getCodPeso() + " - " + peso.getValor() + "kg em " + dtf.format(peso.getDtPesagem()));
 		}
+	}
+	
+	private static void generateRefeicao(DateFormat dtf) throws ParseException {
+		RefeicaoDao refeicaoDao = new RefeicaoDao();
+		refeicaoDao.insert(new Refeicao(TipoRefeicao.ALMOCO, dtf.parse("09/09/2020")));
+		refeicaoDao.insert(new Refeicao(TipoRefeicao.CAFEMANHA, dtf.parse("02/10/2020")));
+		refeicaoDao.insert(new Refeicao(TipoRefeicao.CAFETARDE, dtf.parse("10/10/2020")));
+		refeicaoDao.insert(new Refeicao(TipoRefeicao.CEIA, dtf.parse("15/10/2020")));
+		refeicaoDao.insert(new Refeicao(TipoRefeicao.JANTA, dtf.parse("20/10/2020")));
+		
+		List<Refeicao> refeicoes = refeicaoDao.getAll();
+		
+		for(Refeicao ref : refeicoes) {
+			System.out.println(ref.toString());
+		}
+		
 	}
 }

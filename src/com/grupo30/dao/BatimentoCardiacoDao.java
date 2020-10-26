@@ -29,7 +29,7 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("SELECT cod_batimento_cardiaco,batimento_minimo,"
 					+ "batimento_maximo,batimento_medio,dt_medicao"
-					+ " FROM batimento_cardiaco");
+					+ " FROM T_HTK_BATIMPROVA");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
@@ -55,7 +55,7 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO BatimentoCardiaco(cod_batimento_cardiaco,batimento_minimo,"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_BATIMPROVA(cod_batimento_cardiaco,batimento_minimo,"
 					+ "batimento_maximo,batimento_medio,dt_medicao)"
 					+ " VALUES (SQ_BATIMENTO_CARDIACO.NEXTVAL, ?, ?, ?, ?)");
 			stmt.setInt(1, t.getBatimentoMinimo());

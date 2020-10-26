@@ -21,6 +21,7 @@ public class UsuarioDao implements Dao<Usuario>{
 
     @Override
     public List<Usuario> getAll() {
+    	//TODO trazer valores de join
         connection = ConnectionFactory.getConnection();
         if (connection == null) return null;
 

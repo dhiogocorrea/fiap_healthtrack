@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.grupo30.enums.TipoRefeicao;
 import com.grupo30.model.Atividade;
 
 public class AtividadeDao implements Dao<Atividade> {
@@ -28,7 +29,7 @@ public class AtividadeDao implements Dao<Atividade> {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("SELECT cod_atividade,nome,duracao_atividade,dt_atividade"
-					+ " FROM atividade");
+					+ " FROM T_HTK_ATIV");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
@@ -53,7 +54,7 @@ public class AtividadeDao implements Dao<Atividade> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO atividade(cod_atividade,nome,duracao_atividade,dt_atividade)"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ATIV(cod_atividade,nome,duracao_atividade,dt_atividade)"
 					+ " VALUES (SQ_ATIVIDADE.NEXTVAL, ?, ?, ?)");
 			stmt.setString(1, t.getNome());
 			stmt.setDouble(2, t.getDuracaoAtividade());

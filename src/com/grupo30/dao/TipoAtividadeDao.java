@@ -27,11 +27,11 @@ public class TipoAtividadeDao implements Dao<TipoAtividade>{
         List<TipoAtividade> allAtividades = new ArrayList<TipoAtividade>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT cod_atividade,atividade,calorias_gasta FROM T_HTK_ATIV");
+            PreparedStatement stmt = connection.prepareStatement("SELECT cod_tipo_atividade,tipo_atividade,calorias_gastas_hora FROM T_HTK_TIPO_ATIV");
             ResultSet res = stmt.executeQuery();
 
             while(res.next()) {
-                TipoAtividade a = new TipoAtividade(res.getInt("cod_atividade"), res.getString("atividade"), res.getInt("calorias_gasta"));
+                TipoAtividade a = new TipoAtividade(res.getInt("cod_tipo_atividade"), res.getString("tipo_atividade"), res.getInt("calorias_gastas_hora"));
                 allAtividades.add(a);
             }
             stmt.close();
@@ -49,9 +49,9 @@ public class TipoAtividadeDao implements Dao<TipoAtividade>{
         if (connection == null) return -1;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ATIV(cod_atividade, atividade, calorias_gasta) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ATIV(cod_tipo_atividade, tipo_atividade, calorias_gastas_hora) VALUES (SQ_TIPO_ATIVIDADE.NEXTVAL, ?, ?)");
             stmt.setString(1, tipoAtividade.getTipoAtividade());
-            stmt.setInt(2, tipoAtividade.getCaloriasGastaHora());
+            stmt.setInt(2, tipoAtividade.getCaloriasGastasHora());
 
             int res = stmt.executeUpdate();
 

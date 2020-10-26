@@ -19,6 +19,11 @@ public class Refeicao {
         this.tipoRefeicao = tipoRefeicao;
         this.dtRefeicao = dtRefeicao;
     }
+    
+    public Refeicao(TipoRefeicao tipoRefeicao, Date dtRefeicao) {
+        this.tipoRefeicao = tipoRefeicao;
+        this.dtRefeicao = dtRefeicao;
+    }
 
     public int getCodRefeicao() {
         return codRefeicao;

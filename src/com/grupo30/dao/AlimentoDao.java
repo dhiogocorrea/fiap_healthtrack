@@ -28,7 +28,7 @@ public class AlimentoDao implements Dao<Alimento> {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("SELECT cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida"
-					+ " FROM alimento");
+					+ " FROM T_HTK_ALIM_CONSU");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
@@ -54,7 +54,7 @@ public class AlimentoDao implements Dao<Alimento> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO alimento(cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida)"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ALIM_CONSU(cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida)"
 					+ " VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?,?)");
 			stmt.setString(1, t.getNome());
 			stmt.setDouble(2, t.getQtConsumida());
