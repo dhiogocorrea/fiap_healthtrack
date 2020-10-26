@@ -1,7 +1,7 @@
 package com.grupo30.model;
 import com.grupo30.enums.Plano;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 /**
